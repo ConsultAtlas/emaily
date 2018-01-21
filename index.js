@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-require('./routes/authroutes')(app);
+require('./routes/authRoutes')(app);
 
 // Set the port to be assigned by heroku but booleaned it to start on 5000
 // if we havent gotten anything from heroku.
