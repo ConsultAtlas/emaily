@@ -1,3 +1,4 @@
+import 'materialize-css/dist/css/materialize.min.css' // webpack magic, importing css min files from our npm package
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
