@@ -31,18 +31,19 @@ passport.use(
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback',
         proxy: true
-    }, 
-    (accessToken, refreshToken, profile, done) => {
-        User.findOne({ googleId: profile.id }).then((existingUser) => {
-            if (existingUser) {
-                // We already have a given record with the user ID
-                done(null, existingUser); // tells passport that we are done, that we have no error msg and then had off the existingUser.
-            } else {
-                // we do not have a user record with this ID, make a new record
-                new User({ googleId: profile.id }).save() // creates a mongo model instance and then persists it to the database. 
-                    .then(user => done(null, user));
-            }
-            })
+    },
+    
+    // asynchronous process. anytime you touch the database, it is asynchronous.
+    async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({ googleId: profile.id });
+        
+        if (existingUser) {
+            // We already have a given record with the user ID
+            return done(null, existingUser); // tells passport that we are done, that we have no error msg and then had off the existingUser.
+        } 
+        // we do not have a user record with this ID, make a new record
+        const user = await new User({ googleId: profile.id }).save(); // creates a mongo model instance and then persists it to the database.
+        done(null, user);
     }
-  )
+)
 );
