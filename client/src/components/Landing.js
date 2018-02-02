@@ -4,9 +4,9 @@ const Landing = () => {
     return (
         <div style={{textAlign: 'center'}}>
             <h1>
-                Emaily!
+                Krypto-Dash!
             </h1>
-            Collect Feedback from your users
+            See all your cryptos in one place!
         </div>
     );
 };
