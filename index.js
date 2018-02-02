@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
     // Making sure that express will serve up the index.html file if it doesnt recognize the route.
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
-    })
+    });
 }
 
 // Set the port to be assigned by heroku but booleaned it to start on 5000
