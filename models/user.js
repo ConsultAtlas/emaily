@@ -3,7 +3,11 @@ const { Schema } = mongoose; // This states that the mongoose object has a prope
                              // assign it to a new property called "Schema". This is called 'destructoring'.
 
 const userSchema = new Schema ({
-    googleId: String
+    googleId: String,
+    credits: {
+        type: Number,
+        default: 0
+    }
 });
 
 mongoose.model('users', userSchema); // By using the 'mongoose.model()' command we are telling mongoose that we want to create a new
