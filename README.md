@@ -1,4 +1,5 @@
-PROJECT TITLE
+PROJECT TITLE:
+
 Emaily. Small app for creating surveys and sending them to users to complete.
 
 THIS IS A LEARNING PROJECT. Done in conjunction with Udemy Class: Node with React - Fullstack Web Development by Stephen Grider.
